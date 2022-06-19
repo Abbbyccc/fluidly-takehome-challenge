@@ -1,8 +1,15 @@
 function assertEquals(expect, actual) {
-    if (typeof expect !== typeof actual) {
+    if (typeof expect !== typeof actual && !Array.isArray(expect) && !Array.isArray(actual)) {
         console.error(`Expected type ${typeof expect} but found type ${typeof actual}`)
         return
+    } else if (Array.isArray(expect) && !Array.isArray(actual)) {
+        console.error(`Expected type array but found type ${typeof actual}`)
+        return
+    } else if (!Array.isArray(expect) && Array.isArray(actual)) {
+        console.error(`Expected type ${typeof expect} but found type array`)
+        return
     }
+
 
     if (typeof expect === 'number' && typeof actual === 'number') {
         if (expect === actual) {
