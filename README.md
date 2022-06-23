@@ -1,4 +1,4 @@
-# Fluidly home and pairing test
+# Fluidly take home and pairing test
 
 ## The challenge
 
