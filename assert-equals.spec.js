@@ -1,3 +1,5 @@
+
+
 const assertEquals = require('./assert-equals')
 
 describe('assertEquals', () => {
@@ -16,9 +18,9 @@ describe('assertEquals', () => {
       expect(() => assertEquals(1, '2')).toThrow(Error)
       expect(() => assertEquals(2, 3)).toThrow(Error)
       expect(() => assertEquals([1, 2], [1, 3])).toThrow(Error)
-      expect(() => assertEquals([1, 2], 2).toThrow(Error))
-      expect(() => assertEquals([1, 2], '2').toThrow(Error))
-      expect(() => assertEquals({ name: 'abby' }, '2').toThrow(Error))
+      expect(() => assertEquals([1, 2], 2)).toThrow(Error)
+      expect(() => assertEquals([1, 2], '2')).toThrow(Error)
+      expect(() => assertEquals({ name: 'abby' }, '2')).toThrow(Error)
 
     })
   })
