@@ -1,5 +1,4 @@
 
-
 const assertEquals = require('./assert-equals')
 
 describe('assertEquals', () => {
@@ -22,6 +21,23 @@ describe('assertEquals', () => {
       expect(() => assertEquals([1, 2], '2')).toThrow(Error)
       expect(() => assertEquals({ name: 'abby' }, '2')).toThrow(Error)
 
+    })
+  })
+})
+
+describe('Compare Object type', () => {
+  describe('when expected and actual are different, it should throw an error', () => {
+    it('return an error if the type is diffferent', () => {
+      expect(() => assertEquals({name:'abby'}, 2)).toThrow(Error)
+      expect(() => assertEquals({name:'abby'}, [1,3,4])).toThrow(Error)
+      expect(() => assertEquals({name:'abby'}, null)).toThrow(Error)
+    })
+    it('return an error if both objects are not the same length', () => {
+      expect(() => assertEquals({name:'abby'}, {name:'abby', name:'lisa'})).toThrow(Error)
+    })
+    it('return an error if both objects do not have the same key or value', () => {
+      expect(() => assertEquals({name:'abby'}, {name:'lisa'})).toThrow(Error)
+      expect(() => assertEquals({name:'abby'}, {fname:'abby'})).toThrow(Error)
     })
   })
 })
